@@ -30,17 +30,25 @@ function reverseBaseSort(arr) {
 }
 
 function frequencySort(arr) {
-  // Your code here
+  let obj = {};
+  for (let ele of arr) {
+    if (obj[ele]) obj[ele] += 1;
+    else obj[ele] = 1;
+  }
+  return arr.sort((a,b) => {
+    if (obj[a] === obj[b]) return b - a;
+    else if (obj[a] < obj[b]) return -1;
+    else return 1;
+  })
 }
 
-// let s = "anagram";
-// let t = "nagaram";
+const arr1 = [1, 1, 2, 2, 2, 3];
+const arr2 = [2, 3, 1, 3, 2];
+const arr3 = [-1, 1, -6, 4, 5, -6, 1, 4, 1]
 
-// console.log(validAnagrams(s, t));
-
-// console.log(Math.log10(10))
-// console.log(Math.log10(99))
-// console.log(Math.log10(100))
+console.log(frequencySort(arr1));        // => [3, 1, 1, 2, 2, 2]
+console.log(frequencySort(arr2));        // => [1, 3, 3, 2, 2]
+console.log(frequencySort(arr3));        // => [5, -1, 4, 4, -6, -6, 1, 1, 1]
 
 
 module.exports = [
