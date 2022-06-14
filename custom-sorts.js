@@ -13,7 +13,11 @@ function oddEvenSort(arr) {
 }
 
 function validAnagrams(s, t) {
-  // Your code here
+
+  let sLetter = s.toLowerCase().split('').sort();
+  let tLetter = t.toLowerCase().split('').sort();
+  if (sLetter.join('') === tLetter.join('')) return true;
+  else return false;
 }
 
 function reverseBaseSort(arr) {
@@ -23,6 +27,11 @@ function reverseBaseSort(arr) {
 function frequencySort(arr) {
   // Your code here
 }
+
+// let s = "anagram";
+// let t = "nagaram";
+
+// console.log(validAnagrams(s, t));    
 
 module.exports = [
   oddEvenSort,
